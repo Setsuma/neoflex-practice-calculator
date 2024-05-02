@@ -6,13 +6,13 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
-import ru.neoflex.practice.service.CalcServiceImpl;
+import ru.neoflex.practice.service.CalcService;
 
 @RestController
 @RequiredArgsConstructor
 @Slf4j
 public class CalcController {
-    private final CalcServiceImpl service;
+    private final CalcService service;
 
     @GetMapping("/plus/{a}/{b}")
     public ResponseEntity<Long> add(@PathVariable Integer a, @PathVariable Integer b) {
