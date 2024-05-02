@@ -20,7 +20,6 @@ public class CalcControllerUnitTest {
     void setUp() {
         mockCalcService = Mockito.mock(CalcService.class);
         calcController = new CalcController(mockCalcService);
-        ;
     }
 
     @Test
