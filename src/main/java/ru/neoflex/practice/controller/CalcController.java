@@ -6,7 +6,10 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
+import ru.neoflex.practice.dto.CalculationResultResponseDto;
 import ru.neoflex.practice.service.CalcService;
+
+import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
@@ -24,5 +27,11 @@ public class CalcController {
     public ResponseEntity<Long> subtract(@PathVariable Integer a, @PathVariable Integer b) {
         log.info("Subtract request: minuend = {}, subtrahend = {}", a, b);
         return ResponseEntity.ok(service.subtract(a, b));
+    }
+
+    @GetMapping("/history")
+    public ResponseEntity<List<CalculationResultResponseDto>> getHistory() {
+        log.info("History request");
+        return ResponseEntity.ok(service.getHistory());
     }
 }
